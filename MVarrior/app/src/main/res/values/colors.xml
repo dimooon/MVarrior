@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="corporate_purple_light">#FF8A2BE2</color>
+    <color name="corporate_purple_main">#FF4B0082</color>
+    <color name="corporate_text_color_white">@android:color/white</color>
+
+    <color name="menu_background">#D8BFD8</color>
+</resources>
