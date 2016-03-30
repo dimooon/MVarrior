@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Environment;
 
+import com.mv.dimooon.mvarrior.PdfParserListener;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -23,8 +25,8 @@ public class CVParser {
         this.activity = activity;
     }
 
-    public void asyncParsePdf(){
-        new AsyncTask<Void,Void,Void>(){
+    public void asyncParsePdf(final File f,final PdfParserListener listener){
+        new AsyncTask<Void,Void,String>(){
 
             private ProgressDialog progressDialog;
 
@@ -39,33 +41,34 @@ public class CVParser {
             }
 
             @Override
-            protected Void doInBackground(Void... params) {
+            protected String doInBackground(Void... params) {
 
                 try {
-                    readPdf();
+                    return readPdf(f);
                 } catch (IOException e) {
                     e.printStackTrace(); //TODO: add handling;
-                }finally {
-
                 }
 
                 return null;
             }
 
             @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
+            protected void onPostExecute(String result) {
+                super.onPostExecute(result);
                 progressDialog.dismiss();
+                if(listener!=null){
+                    listener.onParseComplete(result);
+                }
             }
         }.execute();
     }
 
-    private void readPdf() throws IOException {
+    private String readPdf(File fileToRead) throws IOException {
         PDFTextStripper stripper = new PDFTextStripper();
-        PDDocument pdDoc = PDDocument.load(new File(Environment.getExternalStorageDirectory(),"Ihor Demedyuk.pdf"));
+        PDDocument pdDoc = PDDocument.load(fileToRead);
         StringWriter writer = new StringWriter();
         stripper.writeText(pdDoc, writer);
-        System.out.println(writer.toString());
+        return writer.toString();
     }
 
 }

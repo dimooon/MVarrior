@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:title="@string/action_settings"
+        android:id="@+id/action_find_pdf_cv"
+        app:showAsAction="always"
+        android:icon="@drawable/pdf_icon"/>
 </menu>

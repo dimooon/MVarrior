@@ -1,6 +1,5 @@
 package com.mv.dimooon.mvarrior.fragments;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;

@@ -1,27 +1,13 @@
 package com.mv.dimooon.mvarrior.fragments;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 
 import com.mv.dimooon.mvarrior.PermissionsGuard;
 import com.mv.dimooon.mvarrior.R;
-
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
 
 /**
  * Created by dimooon on 22.02.16.
